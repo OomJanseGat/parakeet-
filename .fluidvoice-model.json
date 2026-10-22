@@ -1,0 +1,7 @@
+{
+  "model_id": "parakeet-tdt-0.6b-v2",
+  "source": "https://huggingface.co/mudler/parakeet-cpp-gguf/resolve/main/tdt-0.6b-v2-q8_0.gguf",
+  "archive_sha256": "2027e2e1a4dc60ccdd8558f93b15e7c0db4ef8895b4e82e889f3a6275d8119c6",
+  "archive_bytes": 903835936,
+  "installed_at": "2026-10-22T09:06:59.328232900+00:00"
+}

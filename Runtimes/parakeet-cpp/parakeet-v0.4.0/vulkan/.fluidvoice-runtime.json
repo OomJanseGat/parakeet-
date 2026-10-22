@@ -1,0 +1,9 @@
+{
+  "runtime": "parakeet-cpp",
+  "version": "parakeet-v0.4.0",
+  "accelerator": "vulkan",
+  "archives": [
+    "parakeet-v0.4.0-lib-win-vulkan-x64.zip"
+  ],
+  "installed_at": "2026-10-22T09:09:49.704414500+00:00"
+}

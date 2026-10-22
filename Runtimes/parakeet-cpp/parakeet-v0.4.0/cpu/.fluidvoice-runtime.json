@@ -1,0 +1,9 @@
+{
+  "runtime": "parakeet-cpp",
+  "version": "parakeet-v0.4.0",
+  "accelerator": "cpu",
+  "archives": [
+    "parakeet-v0.4.0-lib-win-cpu-x64.zip"
+  ],
+  "installed_at": "2026-10-22T09:09:42.434458300+00:00"
+}
