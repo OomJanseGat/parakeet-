@@ -1,0 +1,70 @@
+﻿================================================================================
+FLUIDVOICE PARAKEET MODEL & RUNTIME SETUP INSTRUCTIONS
+================================================================================
+
+WHAT THIS FOLDER IS:
+This repository contains the offline Parakeet voice model and execution runtimes
+for the FluidVoice dictation application on Windows.
+
+--------------------------------------------------------------------------------
+OPTION 1: AUTOMATIC INSTALLATION (RECOMMENDED)
+--------------------------------------------------------------------------------
+1. Make sure you pulled the full 904 MB file with Git LFS:
+   If "tdt-0.6b-v2-q8_0.gguf" is ~134 bytes instead of ~904 MB, run:
+       git lfs pull
+
+2. Double-click the file named:
+       install.bat
+
+That's it! The script will automatically copy all files to the exact paths below.
+
+--------------------------------------------------------------------------------
+OPTION 2: MANUAL INSTALLATION (WHERE EACH FILE MUST BE STORED)
+--------------------------------------------------------------------------------
+If you prefer to copy the files yourself or need to know where they go:
+
+1. VOICE MODEL & METADATA:
+   Files to copy:
+     - tdt-0.6b-v2-q8_0.gguf
+     - .fluidvoice-model.json
+   Destination folder:
+     C:\Users\<YourUsername>\AppData\Roaming\com.altic.fluidvoice.windows\models\parakeet-tdt-0.6b-v2\
+   Shortcut path:
+     %APPDATA%\com.altic.fluidvoice.windows\models\parakeet-tdt-0.6b-v2\
+
+2. INFERENCE RUNTIMES (CPU & VULKAN DLLs):
+   Folder to copy:
+     - Runtimes\parakeet-cpp
+   Destination folder:
+     C:\Users\<YourUsername>\AppData\Local\FluidVoice\Runtimes\parakeet-cpp\
+   Shortcut path:
+     %LOCALAPPDATA%\FluidVoice\Runtimes\parakeet-cpp\
+
+3. APP SETTINGS:
+   File to copy:
+     - settings.json
+   Destination folder:
+     C:\Users\<YourUsername>\AppData\Roaming\com.altic.fluidvoice.windows\settings.json
+   Shortcut path:
+     %APPDATA%\com.altic.fluidvoice.windows\settings.json
+   (Note: Only copy settings.json if you don't already have one configured.)
+
+--------------------------------------------------------------------------------
+POWERSHELL ONE-LINER (IF DOING MANUALLY VIA COMMAND LINE)
+--------------------------------------------------------------------------------
+Run this in PowerShell inside this folder:
+
+$roaming = "$env:APPDATA\com.altic.fluidvoice.windows"
+$local   = "$env:LOCALAPPDATA\FluidVoice"
+New-Item -ItemType Directory -Force "$roaming\models\parakeet-tdt-0.6b-v2"
+New-Item -ItemType Directory -Force "$local\Runtimes"
+Copy-Item "tdt-0.6b-v2-q8_0.gguf", ".fluidvoice-model.json" -Destination "$roaming\models\parakeet-tdt-0.6b-v2\"
+Copy-Item -Recurse "Runtimes\parakeet-cpp" -Destination "$local\Runtimes\parakeet-cpp"
+if (-not (Test-Path "$roaming\settings.json")) { Copy-Item "settings.json" "$roaming\" }
+
+--------------------------------------------------------------------------------
+VERIFICATION
+--------------------------------------------------------------------------------
+Open FluidVoice. The Parakeet model will appear as installed and active without
+downloading anything from the internet.
+================================================================================
